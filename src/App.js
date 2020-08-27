@@ -23,10 +23,21 @@ export default class App extends Component {
       },
     ]
   };
+  markComplete = (id) => {
+    this.setState({
+        todo: this.state.todo.map(todo=>{
+            if(todo.id===id){
+                todo.completed=!todo.completed
+            }
+            return todo;
+        })
+    })
+}
   render() {
+    
     return (
       <div className="App">
-        <Todo todo={this.state.todo}/>
+        <Todo todo={this.state.todo} markComplete={this.markComplete}/>
       </div>
     );
   }
