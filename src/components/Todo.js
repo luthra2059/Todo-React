@@ -5,10 +5,12 @@ export default class Todo extends Component {
     
     render() {
         return this.props.todo.map((todo)=>(
-            <TodoItem key={todo.id} todo={todo} markComplete={this.props.markComplete}/>
+            <TodoItem delTodo={this.props.delTodo} key={todo.id} todo={todo} markComplete={this.props.markComplete}/>
         )) 
     }
 }
 Todo.propTypes = {
-    todo: PropTypes.array.isRequired
+    todo: PropTypes.array.isRequired,
+    markComplete: PropTypes.func.isRequired,
+    delTodo: PropTypes.func.isRequired
 }
